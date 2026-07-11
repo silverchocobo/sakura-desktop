@@ -9,7 +9,7 @@
   [![Contributors](https://img.shields.io/github/contributors/stoatchat/for-desktop?style=flat-square&logoColor=white)](https://github.com/stoatchat/for-desktop/graphs/contributors)
   [![License](https://img.shields.io/github/license/stoatchat/for-desktop?style=flat-square&logoColor=white)](https://github.com/stoatchat/for-desktop/blob/main/LICENSE)
 </h1>
-Application for Windows, macOS, and Linux.
+Application for Windows, macOS, and Linux. It's a fork from the Open Source platform Stoat.
 </div>
 <br/>
 
