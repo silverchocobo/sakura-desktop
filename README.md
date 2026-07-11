@@ -49,6 +49,8 @@ pnpm start
 pnpm package
 # ... or build all distributables
 pnpm make
+#.. for windows
+pnpm make --platform win32 --arch x64 --targets @electron-forge/maker-zip,@electron-forge/maker-squirrel
 ```
 
 Various useful commands for development testing:
