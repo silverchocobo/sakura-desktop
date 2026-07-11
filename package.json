@@ -1,9 +1,16 @@
 {
-  "name": "stoat-desktop",
-  "productName": "stoat-desktop",
+  "name": "@silverchocobo/sakuranet",
+  "productName": "sakuranet",
   "version": "1.4.0",
   "main": ".vite/build/main.js",
-  "repository": "stoatchat/desktop",
+  "description": "SakuraNET Desktop Client", 
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silverchocobo/sakura-desktop"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "start": "electron-forge start -- --no-sandbox",
     "package": "electron-forge package",

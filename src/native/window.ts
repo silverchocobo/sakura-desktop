@@ -23,7 +23,7 @@ export let mainWindow: BrowserWindow;
 export const BUILD_URL = new URL(
   app.commandLine.hasSwitch("force-server")
     ? app.commandLine.getSwitchValue("force-server")
-    : /*MAIN_WINDOW_VITE_DEV_SERVER_URL ??*/ "https://stoat.chat/app",
+    : /*MAIN_WINDOW_VITE_DEV_SERVER_URL ??*/ "https://cibergurias.com/",
 );
 
 // internal window state
@@ -90,6 +90,10 @@ export function createMainWindow() {
 
   // load the entrypoint
   mainWindow.loadURL(BUILD_URL.toString());
+
+  mainWindow.webContents.on("did-finish-load", () => {
+    mainWindow.webContents.session.clearCache();
+  });
 
   // minimise window to tray
   mainWindow.on("close", (event) => {
@@ -204,7 +208,7 @@ export function createMainWindow() {
             // See vencord for an implementation using a virtual microphone.
             callback({
               video: sources[0],
-              audio: request.audioRequested ? "loopbackWithMute" : undefined,
+              audio: request.audioRequested ? "loopback" : undefined,
             });
             return;
           }
@@ -216,7 +220,7 @@ export function createMainWindow() {
               } else {
                 callback({
                   video: sources[idx],
-                  audio: audio ? "loopbackWithMute" : undefined,
+                  audio: audio ? "loopback" : undefined,
                 });
               }
             },

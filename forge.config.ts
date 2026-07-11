@@ -13,10 +13,10 @@ import { FuseV1Options, FuseVersion } from "@electron/fuses";
 // import { globSync } from "node:fs";
 
 const STRINGS = {
-  author: "Revolt Platforms LTD",
-  name: "Stoat",
-  execName: "stoat-desktop",
-  description: "Open source user-first chat platform.",
+  author: "Cibergurias",
+  name: "SakuraNET",
+  execName: "sakuranet",
+  description: "Instancia privada do Stoat feita para uso limitado",
 };
 
 const ASSET_DIR = "assets/desktop";
@@ -32,7 +32,7 @@ const makers: ForgeConfig["makers"] = [
     iconUrl: `https://stoat.chat/app/assets/icon-DUSNE-Pb.ico`,
     // todo: loadingGif
     setupIcon: `${ASSET_DIR}/icon.ico`,
-    description: STRINGS.description,
+    description: "SakuraNET Desktop Client",
     exe: `${STRINGS.execName}.exe`,
     setupExe: `${STRINGS.execName}-setup.exe`,
     copyright: "Copyright (C) 2025 Revolt Platforms LTD",
@@ -52,63 +52,63 @@ if (!process.env.PLATFORM) {
     }),
     // flatpak publishing should occur through flathub repos.
     // this is just for testing purposes
-    new MakerFlatpak({
-      options: {
-        id: "chat.stoat.stoat-desktop",
-        description: STRINGS.description,
-        productName: STRINGS.name,
-        productDescription: STRINGS.description,
-        runtimeVersion: "25.08",
-        icon: {
-          "16x16": `${ASSET_DIR}/hicolor/16x16.png`,
-          "32x32": `${ASSET_DIR}/hicolor/32x32.png`,
-          "64x64": `${ASSET_DIR}/hicolor/64x64.png`,
-          "128x128": `${ASSET_DIR}/hicolor/128x128.png`,
-          "256x256": `${ASSET_DIR}/hicolor/256x256.png`,
-          "512x512": `${ASSET_DIR}/hicolor/512x512.png`,
-        } as unknown,
-        categories: ["Network"],
-        modules: [
-          // use the latest zypak -- Electron sandboxing for Flatpak
-          {
-            name: "zypak",
-            sources: [
-              {
-                type: "git",
-                url: "https://github.com/refi64/zypak",
-                tag: "v2025.09",
-              },
-            ],
-          },
-        ],
-        finishArgs: [
-          // default arguments found by running
-          // DEBUG=electron-installer-flatpak* pnpm make
-          "--socket=fallback-x11",
-          "--socket=wayland",
-          "--share=ipc",
-          "--share=network",
-          "--device=dri",
-          "--device=all",
-          "--socket=pulseaudio",
-          "--filesystem=home",
-          "--filesystem=xdg-run/pipewire-0",
-          "--filesystem=xdg-videos:ro",
-          "--filesystem=xdg-pictures:ro",
-          "--filesystem=xdg-run/speech-dispatcher",
-          "--talk-name=org.freedesktop.ScreenSaver",
-          "--talk-name=org.freedesktop.Notifications",
-          "--talk-name=org.kde.StatusNotifierWatcher",
-          "--talk-name=com.canonical.AppMenu.Registrar",
-          "--talk-name=com.canonical.indicator.application",
-          "--talk-name=com.canonical.Unity",
-          "--env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons",
-          "--env=ELECTRON_TRASH=gio",
-          "--env=TMPDIR=xdg-run/app/chat.stoat.stoat-desktop",
-        ],
-        files: [],
-      } as MakerFlatpakOptionsConfig,
-    }),
+    // new MakerFlatpak({
+    //   options: {
+    //     id: "chat.stoat.stoat-desktop",
+    //     description: STRINGS.description,
+    //     productName: STRINGS.name,
+    //     productDescription: STRINGS.description,
+    //     runtimeVersion: "25.08",
+    //     icon: {
+    //       "16x16": `${ASSET_DIR}/hicolor/16x16.png`,
+    //       "32x32": `${ASSET_DIR}/hicolor/32x32.png`,
+    //       "64x64": `${ASSET_DIR}/hicolor/64x64.png`,
+    //       "128x128": `${ASSET_DIR}/hicolor/128x128.png`,
+    //       "256x256": `${ASSET_DIR}/hicolor/256x256.png`,
+    //       "512x512": `${ASSET_DIR}/hicolor/512x512.png`,
+    //     } as unknown,
+    //     categories: ["Network"],
+    //     modules: [
+    //       // use the latest zypak -- Electron sandboxing for Flatpak
+    //       {
+    //         name: "zypak",
+    //         sources: [
+    //           {
+    //             type: "git",
+    //             url: "https://github.com/refi64/zypak",
+    //             tag: "v2025.09",
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //     finishArgs: [
+    //       // default arguments found by running
+    //       // DEBUG=electron-installer-flatpak* pnpm make
+    //       "--socket=fallback-x11",
+    //       "--socket=wayland",
+    //       "--share=ipc",
+    //       "--share=network",
+    //       "--device=dri",
+    //       "--device=all",
+    //       "--socket=pulseaudio",
+    //       "--filesystem=home",
+    //       "--filesystem=xdg-run/pipewire-0",
+    //       "--filesystem=xdg-videos:ro",
+    //       "--filesystem=xdg-pictures:ro",
+    //       "--filesystem=xdg-run/speech-dispatcher",
+    //       "--talk-name=org.freedesktop.ScreenSaver",
+    //       "--talk-name=org.freedesktop.Notifications",
+    //       "--talk-name=org.kde.StatusNotifierWatcher",
+    //       "--talk-name=com.canonical.AppMenu.Registrar",
+    //       "--talk-name=com.canonical.indicator.application",
+    //       "--talk-name=com.canonical.Unity",
+    //       "--env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons",
+    //       "--env=ELECTRON_TRASH=gio",
+    //       "--env=TMPDIR=xdg-run/app/chat.stoat.stoat-desktop",
+    //     ],
+    //     files: [],
+    //   } as MakerFlatpakOptionsConfig,
+    // }),
     // testing purposes
     new MakerDeb({
       options: {
@@ -168,8 +168,8 @@ const config: ForgeConfig = {
   publishers: [
     new PublisherGithub({
       repository: {
-        owner: "stoatchat",
-        name: "for-desktop",
+        owner: "silverchocobo",
+        name: "sakura-desktop",
       },
     }),
   ],
