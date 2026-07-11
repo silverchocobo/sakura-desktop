@@ -19,8 +19,6 @@ Application for Windows, macOS, and Linux.
     <img src="https://repology.org/badge/vertical-allrepos/stoat-desktop.svg" alt="Packaging status" align="right">
 </a>
 
-- All downloads and instructions for Stoat can be found on our [Website](https://stoat.chat/download).
-
 ## Development Guide
 
 _Contribution guidelines for Desktop app TBA!_
