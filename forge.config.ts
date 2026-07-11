@@ -15,7 +15,7 @@ import { FuseV1Options, FuseVersion } from "@electron/fuses";
 const STRINGS = {
   author: "Cibergurias",
   name: "SakuraNET",
-  execName: "sakuranet",
+  execName: "sakura-desktop",
   description: "Instancia privada do Stoat feita para uso limitado",
 };
 
@@ -112,6 +112,7 @@ if (!process.env.PLATFORM) {
     // testing purposes
     new MakerDeb({
       options: {
+        bin: STRINGS.execName,
         productName: STRINGS.name,
         productDescription: STRINGS.description,
         categories: ["Network"],

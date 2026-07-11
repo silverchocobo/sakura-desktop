@@ -9,10 +9,6 @@ import { initDiscordRpc } from "./native/discordRpc";
 import { initTray } from "./native/tray";
 import { BUILD_URL, createMainWindow, mainWindow } from "./native/window";
 
-require("update-electron-app")({
-  repo: "silverchocobo/sakuranet-desktop",
-});
-
 // Squirrel-specific logic
 // create/remove shortcuts on Windows when installing / uninstalling
 // we just need to close out of the app immediately
@@ -40,7 +36,10 @@ const onNotifyUser = (_info: IUpdateInfo) => {
 
 if (acquiredLock) {
   // start auto update logic
-  updateElectronApp({ onNotifyUser });
+  updateElectronApp({
+    repo: "silverchocobo/sakuranet-desktop",
+    onNotifyUser,
+  });
 
   // create and configure the app when electron is ready
   app.on("ready", () => {
